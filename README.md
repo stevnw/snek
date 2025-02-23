@@ -1,6 +1,6 @@
 # Snek
 
-Simple snake game written in Lua using Love2D
+Simple snake game written in Lua using Love2D. Easy mode is quite slow - normal mode is a pretty good speed.
 
 ![snek](https://github.com/user-attachments/assets/b6aa1602-f085-4318-bf49-5b9852d9b1a4)
 
