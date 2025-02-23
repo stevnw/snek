@@ -2,10 +2,13 @@ local snake, food, menu_snake = {}, {}, {body = {}, length = 32, direction = 'ri
 local gridSize, direction, score, timer, menu_timer = 20, 'right', 0, 0, 0
 local game_started, game_over, difficulty = false, false, 'easy'
 local speed = {easy = 20, normal = 50}
+local bleepSound, gameOverSound
 
 function love.load()
     love.window.setMode(900, 900)
     love.window.setTitle("Snek")
+    bleepSound = love.audio.newSource("bleep.mp3", "static")
+    gameOverSound = love.audio.newSource("game_over.mp3", "static")
     snake.body, snake.length = {{x = 5, y = 5}}, 1
     menu_snake.body[1] = {x = 5, y = 15}
     for i = 2, menu_snake.length do menu_snake.body[i] = {x = menu_snake.body[i-1].x - 1, y = menu_snake.body[i-1].y} end
@@ -89,11 +92,15 @@ function love.update(dt)
                 score = score + 1
                 snake.length = snake.length + 1
                 placeFood()
+                love.audio.play(bleepSound)
             end
 
             table.insert(snake.body, 1, head)
             for i = 2, #snake.body do
-                if head.x == snake.body[i].x and head.y == snake.body[i].y then game_over = true end
+                if head.x == snake.body[i].x and head.y == snake.body[i].y then
+                    game_over = true
+                    love.audio.play(gameOverSound)
+                end
             end
             if #snake.body > snake.length then table.remove(snake.body) end
             timer = 0
