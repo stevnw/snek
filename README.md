@@ -2,4 +2,6 @@
 
 Simple snake game written in Lua using Love2D
 
-![2025-02-23 16-17-00](https://github.com/user-attachments/assets/9451d4da-a446-45d3-a812-f55ced4c234a)
+![snek](https://github.com/user-attachments/assets/b6aa1602-f085-4318-bf49-5b9852d9b1a4)
+
+![Screenshot_2025-02-23_16-25-51](https://github.com/user-attachments/assets/9c3d8e53-e652-4110-99f9-246ccbf84cc0)
